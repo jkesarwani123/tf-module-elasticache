@@ -60,10 +60,10 @@ resource "aws_elasticache_replication_group" "baz" {
   kms_key_id           = var.kms_arn
   tags                 = merge(var.tags, { Name = "${var.name}-${var.env}-elasticache" })
 }
-
-resource "aws_docdb_cluster_instance" "cluster_instances" {
-  count              = var.instance_count
-  identifier         = "${var.name}-${var.env}-${count.index}"
-  cluster_identifier = aws_docdb_cluster.main.id
-  instance_class     = var.instance_class
-}
+#
+#resource "aws_docdb_cluster_instance" "cluster_instances" {
+#  count              = var.instance_count
+#  identifier         = "${var.name}-${var.env}-${count.index}"
+#  cluster_identifier = aws_docdb_cluster.main.id
+#  instance_class     = var.instance_class
+#}
